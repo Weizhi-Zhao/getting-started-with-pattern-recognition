@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from optimizer import GradientDescent, Adagrad
+from optimizer import GradientDescent, Adagrad, RMSProp, Momentum, Adam
 
 def train(optim, x, epochs):
     x_list = [x]
@@ -16,12 +16,12 @@ def train(optim, x, epochs):
 LR = 0.4
 X = -4
 
-x, y = train(GradientDescent(LR), X, 10)
-plt.plot(x)
-plt.plot(y)
-plt.show()
+optimizers = [GradientDescent(LR), Adagrad(LR, 1e-6), RMSProp(LR, 0.9), Momentum(LR, 0.9),
+              Adam(LR, 0.9, 0.999)]
 
-x, y = train(Adagrad(LR, 1e-6), X, 10)
-plt.plot(x)
-plt.plot(y)
-plt.show()
+for optim in optimizers:
+    x, y = train(optim, X, 200)
+    plt.plot(x)
+    plt.plot(y)
+    plt.show()
+    print(x[-1], y[-1])
