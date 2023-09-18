@@ -3,14 +3,12 @@ from utils import show_fig, draw_line, draw_points
 import matplotlib.pyplot as plt
 
 class PLA:
-    def __init__(self, inD,
+    def __init__(self,
                  x: np.ndarray, 
                  y: np.ndarray,
                  show_steps=True) -> None:
-        # 特征维度
-        self.inD = inD
         # 权向量（增广）
-        self.w = np.zeros(inD + 1)
+        self.w = np.zeros(x.shape[1] + 1)
         bias = np.ones(x.shape[0])
         # 特征向量增广
         self.x = np.insert(x, x.shape[1], values=bias, axis=1)
@@ -25,8 +23,8 @@ class PLA:
         self.w = self.w + yn * xn
 
     def predict(self, 
-                xn: np.ndarray) -> float:
-        return np.sign(self.w @ xn.T)
+                x: np.ndarray):
+        return np.sign(self.w @ x.T)
     
     def train(self) -> None:
         while True:

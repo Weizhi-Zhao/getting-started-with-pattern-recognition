@@ -6,14 +6,12 @@ import os
 
 # pocket算法，解决线性不可分情况
 class Pocket:
-    def __init__(self, inD,
+    def __init__(self,
                  x: np.ndarray, 
                  y: np.ndarray,
                  iter_num, show_steps=True, save_fig=False) -> None:
-        # 特征维度
-        self.inD = inD
         # 权向量（增广）
-        self.w = np.zeros(inD + 1)
+        self.w = np.zeros(x.shape[1] + 1)
         self.pocket = {'weight': self.w,
                        'correct': 0}
         bias = np.ones(x.shape[0])
@@ -35,8 +33,8 @@ class Pocket:
 
     # 用当前权向量预测
     def predict(self, 
-                xn: np.ndarray) -> int:
-        return np.sign(self.w @ xn.T)
+                x: np.ndarray):
+        return np.sign(self.w @ x.T)
     
     def train(self) -> None:
         for i in range(self.iter_num):
@@ -49,7 +47,7 @@ class Pocket:
                     error_samples.append({'xn': xn, 'yn': yn})
                 else:
                     correct += 1
-                    plt.plot(xn[0], xn[1], 'yv', markersize=10)
+                    #plt.plot(xn[0], xn[1], 'yv', markersize=10)
 
             if self.show_steps == True:
                 self.show_step_result(i)
@@ -98,5 +96,5 @@ class Pocket:
 
     # 依据最优权向量预测
     def predict_with_pocket(self, 
-                xn: np.ndarray) -> float:
-        return np.sign(self.pocket['weight'] @ xn.T)
+                            x: np.ndarray):
+        return np.sign(self.pocket['weight'] @ x.T)
