@@ -10,7 +10,6 @@ s2 = [[1, 0], [0, 1]]
 size2 = 200
 train_x, train_y, test_x, test_y = gen_two_random_normal(m1, s1, size1, m2, s2, size2)
 
-# import pdb; pdb.set_trace()
 fisher = Fisher(train_x[np.squeeze(np.array(train_y), axis=1)==1], 
                 train_x[np.squeeze(np.array(train_y), axis=1)==-1])
 

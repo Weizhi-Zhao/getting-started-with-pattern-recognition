@@ -1,5 +1,5 @@
 import numpy as np
-from linear_regression import LinearRegressionMatrix, LinearRegressionGradient
+from linear_regression import LinearRegressionMatrix, LinearRegression, LinearRegressionSDG
 from optimizer import GradientDescent
 from utils import show_fig
 
@@ -21,9 +21,9 @@ y = np.matrix([1, 1, 1, 1, 1, -1, -1, -1, -1, -1]).T
 
 LRM = LinearRegressionMatrix(x, y)
 
-optim = GradientDescent(lr=0.01)
-LRG = LinearRegressionGradient(optim, x, y)
-LRG.train(15000)
+optim = GradientDescent(lr=0.1)
+LRG = LinearRegressionSDG(optim, x, y, batch_size=1)
+LRG.train(10000)
 
 print(LRG.w)
 print(LRM.w)

@@ -40,6 +40,8 @@ class LinearRegression:
         loss_list = []
         for epoch in range(epochs):
             grad = (self.x.T @ self.x @ self.w - self.x.T @ self.y) * 2 / n
+            if np.all(grad == 0):
+                break
             if show_loss:
                 loss = np.linalg.norm(self.x @ self.w - self.y) ** 2 / n
                 loss_list.append(loss)
@@ -62,7 +64,6 @@ class LinearRegressionSDG(LinearRegression):
               show_loss: bool = False):
         n = self.x.shape[0]
         loss_list = []
-        
         for epoch in range(epochs):
             # 随机打乱数据
             data = np.concatenate((self.x, self.y), axis=1)

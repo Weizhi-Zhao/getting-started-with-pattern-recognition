@@ -21,6 +21,7 @@ LRM = LinearRegressionMatrix(x_train, y_train)
 show_fig(x_train, y_train, LRM.w)
 show_fig(x_test, y_test, LRM.w)
 
+# 梯度下降
 optim = GradientDescent(lr=0.01)
 LRG = LinearRegression(optim, x_train, y_train)
 LRG.train(150, show_loss=True)

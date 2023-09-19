@@ -28,7 +28,7 @@ y = np.concatenate((np.ones(c1.shape[0]), -np.ones(c2.shape[0])))
 x = np.concatenate((c1, c2))
 y_predict = fisher.predict(x)
 
-show_fig(x, y, y_predict)
+show_fig(x, y, y_predict, fisher.w, fisher.threshold)
 
 print(fisher.w, fisher.u1, fisher.u2, fisher.sigma1, fisher.sigma2, 
       np.linalg.inv(fisher.sw), fisher.threshold)
