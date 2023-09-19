@@ -72,9 +72,10 @@ class LinearRegressionSDG(LinearRegression):
                 batch_x = batch[:, :-1]
                 batch_y = batch[:, -1]
                 grad = (batch_x.T @ batch_x @ self.w - batch_x.T @ batch_y) * 2 / n
+                # 每个batch更新一次
+                self.w = self.optimizer.update(self.w, grad)
             if show_loss:
                 loss = np.linalg.norm(self.x @ self.w - self.y) ** 2 / n
                 loss_list.append(loss)
-            self.w = self.optimizer.update(self.w, grad)
         if show_loss:
             show_lineChart(loss_list, xlabel='epoch', ylabel='loss')
