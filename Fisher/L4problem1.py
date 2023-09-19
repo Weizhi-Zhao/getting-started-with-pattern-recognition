@@ -2,7 +2,7 @@ from Fisher import Fisher
 import numpy as np
 from utils import show_fig
 
-c1 = np.array(
+c1 = np.matrix(
         [
             [5, 37],
             [7, 30],
@@ -13,7 +13,7 @@ c1 = np.array(
         ]
     )
 
-c2 = np.array(
+c2 = np.matrix(
         [
             [35, 21.5],
             [39, 21.7],

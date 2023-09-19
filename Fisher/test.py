@@ -1,7 +1,7 @@
 from Fisher import Fisher
 import numpy as np
 
-c1 = np.array(
+c1 = np.matrix(
         [
             [1, -1],
             [-1, 4]
@@ -11,7 +11,5 @@ c1 = np.array(
 c2 = np.array([2, 3])
 
 print(c2)
-print(c2[:, None])
-print(c2[None, :])
-
-print(c2[:, None] @ c2[None, :], c2 @ c1)
+print(c2[1])
+print(c1[1])
