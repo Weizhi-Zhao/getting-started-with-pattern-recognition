@@ -2,14 +2,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 from typing import Optional
 
-# SVM的增广样本b在x的第一个，也就是x[0]，所以这里的画图有一定区别
-
-def show_fig(x, 
-             y, 
-             w=None):
-    draw_points(x, y)
+def show_fig(x: np.ndarray, 
+             y: np.ndarray, 
+             w=None,
+             possibility: Optional[np.ndarray] = None):
+    if possibility is not None:
+        draw_points(x, y, possibility)
+    else:
+        draw_points(x, y)
     if w is not None:
         draw_line(x, w, 'b-')
+
     plt.axis('equal')
     xmin = x[:, 0].min()
     xmax = x[:, 0].max()
@@ -23,19 +26,30 @@ def show_fig(x,
     plt.close()
 
 def draw_points(x: np.ndarray, 
-                y: np.ndarray):
-    for xn, yn in zip(x, y):
+                y: np.ndarray,
+                possibility: Optional[np.ndarray] = None):
+    if possibility is not None:
+        possibility = (possibility - possibility.min()) / (possibility.max() - possibility.min())
+    for i in range(x.shape[0]):
+        xn = x[i]
+        yn = y[i]
         if yn == 1:
-            plt.plot(*(xn), 'g.')
+            if possibility is not None:
+                plt.plot(*(xn), marker='o', color=(0, possibility[i], 0))
+            else:
+                plt.plot(*(xn), 'g.')
         else:
-            plt.plot(*(xn), 'r.')
+            if possibility is not None:
+                plt.plot(*(xn), marker='o', color=(possibility[i], 0, 0))
+            else:
+                plt.plot(*(xn), 'r.')
 
-def draw_line(x: np.ndarray,
+def draw_line(x: np.ndarray, 
               w: np.ndarray,
               cfg):
     xmin = x[:, 0].min()
     xmax = x[:, 0].max()
-    if w[1] != 0:
+    if w[2] != 0:
         a = -w[1] / w[2]
         b = -w[0] / w[2]
     else:

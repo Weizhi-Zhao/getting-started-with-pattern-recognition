@@ -18,7 +18,7 @@
 
 ## 线性回归
 - 线性回归代码：[Linear Regression Algorithm/linear_regression.py](/Linear%20Regression%20Algorithm/linear_regression.py)
-- 优化器（各种梯度下降）代码：[Linear Regression Algorithm//optimizer.py](/Linear%20Regression%20Algorithm/optimizer.py)
+- 优化器（各种梯度下降）代码：[Linear Regression Algorithm/optimizer.py](/Linear%20Regression%20Algorithm/optimizer.py)
 
 ## Fisher线性判别
 - fisher算法：[/Fisher/Fisher.py](/Fisher/Fisher.py)
