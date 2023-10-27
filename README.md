@@ -23,5 +23,9 @@
 ## Fisher线性判别
 - fisher算法：[/Fisher/Fisher.py](/Fisher/Fisher.py)
 
+## 逻辑斯蒂回归
+- 逻辑斯蒂回归算法：[/Logistic Regression/logistic_regression.py](/Logistic%20Regression/logistic_regression.py)
+
 ## SVM支持向量机
-- SVM算法：[/SVM/SVM.py](/SVM/SVM.py)
+- SVM算法：[/SVM/SVMs.py](/SVM/SVMs.py)
+- 核函数：[/SVM/kernel.py](/SVM/kernel.py)

@@ -2,7 +2,7 @@ from SVM import SVM
 import numpy as np
 from utils import show_fig, gen_two_random_normal
 
-x = np.matrix([
+x = np.array([
         [1, 1],
         [2, 2],
         [2, 0],
@@ -10,7 +10,7 @@ x = np.matrix([
         [1, 0],
         [0, 1]
     ])
-y = np.matrix([1, 1, 1, -1, -1, -1]).T
+y = np.array([[1, 1, 1, -1, -1, -1]]).T
 
 svm = SVM(x, y)
 # svm.quadratic_programming()
