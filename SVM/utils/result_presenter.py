@@ -3,6 +3,7 @@ import numpy as np
 from typing import Optional, Callable, Union
 from SVMs import Dual_SVM, Kernel_SVM
 from functools import partial
+import os
 
 # SVM的增广样本b在x的第一个，也就是x[0]，所以这里的画图有一定区别
 
@@ -33,6 +34,8 @@ def show_fig(x,
     plt.show(block=False)
 
     if save_path is not None:
+        if not os.path.exists(os.path.dirname(save_path)):
+            os.mkdir(os.path.dirname(save_path))
         plt.savefig(save_path, dpi=300)
     plt.waitforbuttonpress()
     plt.close()

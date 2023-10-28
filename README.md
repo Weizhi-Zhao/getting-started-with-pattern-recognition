@@ -29,3 +29,7 @@
 ## SVM支持向量机
 - SVM算法：[/SVM/SVMs.py](/SVM/SVMs.py)
 - 核函数：[/SVM/kernel.py](/SVM/kernel.py)
+
+## 多类分类
+- OVO算法：[/Classification for Multiclass/L9code1.py](/Classification%20for%20Multiclass/L9code1.py)
+- Softmax：[/Classification for Multiclass/softmax.py](/Classification%20for%20Multiclass/softmax.py)
