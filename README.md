@@ -33,3 +33,9 @@
 ## 多类分类
 - OVO算法：[/Classification for Multiclass/L9code1.py](/Classification%20for%20Multiclass/L9code1.py)
 - Softmax：[/Classification for Multiclass/softmax.py](/Classification%20for%20Multiclass/softmax.py)
+
+## 神经网络
+- 全连接：[/neural_network/IRIS_net.py](/neural_network/IRIS_net.py)
+- LeNet：[/neural_network/le_net.py](/neural_network/le_net.py)
+
+欢迎找bug
